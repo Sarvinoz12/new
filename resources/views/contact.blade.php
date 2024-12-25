@@ -13,6 +13,8 @@
                 @csrf
                 <div class="flexBox">
 
+                <input name="order" type="hidden" value="{{$product->name}}">
+
                     <div class="nameInputblock">
                         <input
                             name="name"
@@ -30,7 +32,9 @@
                             placeholder="emailingiz..."
                             class="inputItem"
                         />
-
+                    @error('email')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
                     </div>
                     <div class="nameInputblock">
 

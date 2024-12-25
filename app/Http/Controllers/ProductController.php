@@ -17,8 +17,7 @@ class ProductController extends Controller
     // Show form to create a new product
     public function create()
     {
-        $categories = Category::all();
-        return view('products.create', compact('categories'));
+        return view('products.create', );
     }
 
     // Store the new product
@@ -27,10 +26,20 @@ class ProductController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'description' => 'required|string',
-            'category_id' => 'required|exists:categories,id',
+//            'category_id' => 'required|exists:managers,id',
         ]);
 
-        Product::create($request->all());
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('Photo', 'public');
+        } else {
+            $imagePath = null;
+        }
+
+
+        $product = Product::create($request->all());
+
+        $product->photo = $imagePath;
+        $product->save();
 
         return redirect()->route('products.index');
     }
@@ -48,10 +57,17 @@ class ProductController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'description' => 'required|string',
-            'category_id' => 'required|exists:categories,id',
         ]);
 
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('recipe_images', 'public');
+        } else {
+            $imagePath = null;
+        }
+
         $product->update($request->all());
+        $product->photo  = $imagePath;
+        $product->save();
 
         return redirect()->route('products.index');
     }

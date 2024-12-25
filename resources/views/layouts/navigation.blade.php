@@ -12,9 +12,11 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-{{--                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('category.index')">--}}
-{{--                        {{ __('Categories') }}--}}
-{{--                    </x-nav-link>--}}
+                    @role('admin')
+                    <x-nav-link :href="route('manager.index')" :active="request()->routeIs('manager.index')">
+                        {{ __('Managers') }}
+                    </x-nav-link>
+                    @endrole
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('products.index')">
                         {{ __('Products') }}
                     </x-nav-link>

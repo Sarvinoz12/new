@@ -133,46 +133,45 @@ html{
   background-color: rgba(65, 53, 49, 1);
   padding: 20px;
 }
-
 .productList {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap; /* Added for responsiveness */
 }
 
 .productCard {
-  height: auto;
-  background-color: #fff;
-  border-radius: 10px;
-  position: relative;
+    height: auto;
+    background-color: #fff;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden; /* Prevents content overflow */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional for a cleaner design */
 }
 
 .productCardimg {
-  width: 300px;
+    width: 100%; /* Adjusted for flexibility */
+    max-width: 300px;
+    height: auto; /* Ensures proper aspect ratio */
+    display: block; /* Avoids inline spacing issues */
+    margin: 0 auto; /* Centers image if necessary */
 }
 
 .productCardtext_price {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px; /* Made consistent with spacing standards */
 }
 
-.productCardtext {
-  font-weight: 700;
-  font-size: 24px;
-  color: #000000;
-}
-
-.productCardprice {
-  font-weight: 700;
-}
 
 .orderBtnBlock {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 20px;
+  align-content:center;
+  padding-left: 0px
 }
 .orderBtn {
   background-color: rgba(65, 53, 49, 1);
@@ -182,6 +181,9 @@ html{
   width: 200px;
   height: 30px;
   cursor: pointer;
+  align-content: center;
+  padding-left: 40px;
+
 }
 
 .commentBoxopen {

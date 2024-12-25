@@ -9,7 +9,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
-                    <form action="{{ route('products.update', $product) }}" method="POST">
+                    <form action="{{ route('products.update', $product) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="mb-4">
@@ -23,13 +23,8 @@
                         </div>
 
                         <div class="mb-4">
-                            <label for="category_id" class="block text-white">Category</label>
-                            <select name="category_id" id="category_id" class="w-full mt-1 border rounded px-3 py-2 dark:bg-gray-700 dark:text-gray-300" required>
-                                <option value="">Select Category</option>
-                                @foreach($categories as $category)
-                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
-                                @endforeach
-                            </select>
+                            <label for="description" class="block text-white">photo</label>
+                            <input type="file" name="image" id="description" class="w-full mt-1 border rounded px-3 py-2 dark:bg-gray-700 dark:text-gray-300" required>
                         </div>
 
                         <div class="mt-6">

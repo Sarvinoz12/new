@@ -11,20 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('managers', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->timestamps();
-        });
+        // Schema::table('contacts', function (Blueprint $table) {
+        //     $table->string('email')->nullable();
+        // });
     }
-
 
     /**
      * Reverse the migrations.
      */
-
     public function down(): void
     {
-        Schema::dropIfExists('managers');
+        // Schema::table('contacts', function (Blueprint $table) {
+        //     $table->dropColumn('email');
+        // });
     }
 };

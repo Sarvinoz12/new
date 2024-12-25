@@ -17,7 +17,7 @@ class HomeController extends Controller
     public function comments()
     {
         return view('comments', [
-            'products' => Product::paginate(5),
+            'products' => Product::all(),
             'comments' => Comment::all()
         ]);
     }
@@ -30,7 +30,7 @@ class HomeController extends Controller
     public function products()
     {
         return view('products', ([
-            'products' => Product::paginate(5),
+            'products' => Product::all(),
             'comments' => Comment::all()
         ]));
     }
@@ -44,4 +44,13 @@ class HomeController extends Controller
                 'comments' => Comment::all()
             ]);
     }
+public function showContactPage(Request $request)
+    {
+        $productId = $request->query('id');
+        $product = Product::find($productId) ;// Retrieve the product by ID
+
+
+        return view('contact', compact('product'));
+    }
+
 }

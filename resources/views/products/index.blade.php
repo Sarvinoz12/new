@@ -17,7 +17,7 @@
                             <th class="border px-4 py-2">ID</th>
                             <th class="border px-4 py-2">Name</th>
                             <th class="border px-4 py-2">Description</th>
-                            <th class="border px-4 py-2">Category</th>
+                            <th class="border px-4 py-2">photo</th>
                             <th class="border px-4 py-2">Actions</th>
                         </tr>
                         </thead>
@@ -27,7 +27,10 @@
                                 <td class="border px-4 py-2">{{ $product->id }}</td>
                                 <td class="border px-4 py-2">{{ $product->name }}</td>
                                 <td class="border px-4 py-2">{{ $product->description }}</td>
-                                <td class="border px-4 py-2">{{ $product->category->name }}</td>
+                                <td class="border px-4 py-2" style="text-align: center;">
+                                    <img style="display: block; margin: auto;" width="80px" src="storage/{{ $product->photo }}" alt="">
+                                </td>
+{{--                                <td class="border px-4 py-2">{{ $product->category->name }}</td>--}}
                                 <td class="border px-4 py-2">
                                     <a href="{{ route('products.edit', $product) }}" class="bg-yellow-500 text-white px-4 py-2 rounded">Edit</a>
                                     <form action="{{ route('products.destroy', $product) }}" method="POST" class="inline-block">

@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->text('description');
             $table->integer('view')->default(0);
-            $table->foreignId('category_id')->constrained()->onDelete('cascade');
+            $table->string('photo')->nullable();
             $table->timestamps();
         });
     }

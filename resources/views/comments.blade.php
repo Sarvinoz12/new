@@ -12,18 +12,15 @@
             <ul class="productList">
                 @foreach($products as $product)
                     <li class="productCard">
-                        <img
-                            src="{{asset('assets//Assets/Images/cake2.png')}}"
-                            alt=""
-                            class="productCardimg"
-                        />
+                                                    <img  style="width:100%;height:200px;object-fit: cover;border-radius: 10px;" src="{{'storage/'.$product->photo}}" alt="">
+
                         <div class="productCardtext_price">
                             <p class="productCardtext">{{$product->name   }}</p>
 
                         </div>
                         <p class="productCardprice" style="margin: 2px">{{$product->description}}</p>
                         <div class="orderBtnBlock">
-                            <button class="orderBtn">Buyurtma berish</button>
+                           <a href="{{ route('contact', ['id' => $product->id]) }}" type="button" class="orderBtn">Buyurtma berish</a>
                         </div>
                         <div class="commentbox">
 
