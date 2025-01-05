@@ -74,7 +74,6 @@
         <div class="bg-white dark:bg-gray-800 p-6 rounded shadow-lg w-1/2">
             <h3 class="text-lg font-semibold mb-4">Answer Comment</h3>
             <form id="answerForm" method="POST">
-
                 @csrf
                 @method('PUT')
                 <input type="hidden" name="comment_id" id="commentId">
@@ -98,7 +97,7 @@
             const form = document.getElementById('answerForm');
 
             // Dynamically set form action
-            form.action = `/comments/${commentId}`;
+            form.action = `/comments/answer/${commentId}`;
             document.getElementById('commentId').value = commentId; // Set hidden input value
 
             modal.classList.remove('hidden');

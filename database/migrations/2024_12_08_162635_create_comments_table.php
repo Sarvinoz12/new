@@ -11,10 +11,9 @@ class CreateCommentsTable extends Migration
             $table->id();
             $table->text('username'); // Comment text
             $table->text('comment'); // Comment text
-            $table->unsignedBigInteger('product_id'); // Foreign key to products table
+            $table->foreignId('product_id')->constrained();
             $table->timestamps();
             // Add foreign key constraint
-            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
             $table->string('status')->default('0');
         });
     }

@@ -26,7 +26,7 @@
 
                             <ul>
                                 @foreach($comments as $comment)
-                                    <p>{{($comment->product_id == $product->id ) ? $comment->username.':'.$comment->comment.$comment->created_at : null }}</p>
+                                    <p>{{($comment->product_id == $product->id ) ? $comment->username.':'.$comment->comment : null }}</p>
                                     <hr>
                                 @endforeach
                             </ul>
